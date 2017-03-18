@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.boris.music.controller.MainWindowController">
+   <children>
+       <ListView fx:id="lwFiles" layoutX="14.0" layoutY="43.0" prefHeight="412.0" prefWidth="372.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0" />
+       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+          <menus>
+              <Menu mnemonicParsing="false" text="Файл">
+                 <items>
+                     <MenuItem fx:id="miAddFiles" mnemonicParsing="false" text="Добавить из папок...">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="A" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                     <MenuItem fx:id="miOpenLog" mnemonicParsing="false" text="Открыть журнал...">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="J" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                     <MenuItem fx:id="miSettings" mnemonicParsing="false" text="Декодеры...">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="D" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                 </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Обработка">
+                 <items>
+                     <CheckMenuItem fx:id="cmiShowLog" mnemonicParsing="false" text="Показывать журнал после старта">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="L" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
+                     <CheckMenuItem fx:id="cmiMakeNewCue" mnemonicParsing="false" text="Исправлять CUE">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="C" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
+                     <CheckMenuItem fx:id="cmiRemoveFiles" mnemonicParsing="false" text="Удалять исходные файлы">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="R" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
+                 </items>
+              </Menu>
+          </menus>
+       </MenuBar>
+       <Button fx:id="btnDecode" defaultButton="true" layoutX="544.0" layoutY="462.0" mnemonicParsing="false" text="Поехали" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
+       <ProgressBar fx:id="pbProgress" layoutX="14.0" layoutY="465.0" prefHeight="18.0" prefWidth="466.0" progress="0.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="141.0" />
+       <ProgressIndicator fx:id="piIndicator" layoutX="496.0" layoutY="462.0" prefHeight="25.0" prefWidth="32.0" visible="false" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="93.0" />
+   </children>
+</AnchorPane>

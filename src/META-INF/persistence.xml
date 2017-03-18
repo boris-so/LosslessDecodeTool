@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="settings">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ru.boris.music.model.settings.Comment</class>
+        <class>ru.boris.music.model.settings.Format</class>
+        <class>ru.boris.music.model.settings.Operation</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:sqlite:D:/codes/Java/LosslessDecodeTool/base.db"/>
+            <property name="hibernate.dialect" value="ru.boris.music.model.settings.SQLiteDialect" />
+            <property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"/>
+
+            <property name="hibernate.show_sql" value = "true"/>
+            <property name="hibernate.format_sql" value = "true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
