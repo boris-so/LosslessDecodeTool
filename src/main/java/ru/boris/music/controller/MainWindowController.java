@@ -107,7 +107,7 @@ public class MainWindowController implements Initializable
     {
         this.miAddFiles.setOnAction(this::miAddFiles_onAction);
         this.miSettings.setOnAction(e -> Main.showModalWindow(
-                this.getClass().getResource("/ru/boris/music/view/Settings.fxml"), "Настройки"));
+                this.getClass().getResource("/ru/boris/ru.boris.music/view/Settings.fxml"), "Настройки"));
         this.miOpenLog.setOnAction(e -> MainWindowController.stLog.show());
         this.btnDecode.setOnAction(this::btnDecode_onAction);
         this.cmiMakeNewCue.setOnAction(ae ->

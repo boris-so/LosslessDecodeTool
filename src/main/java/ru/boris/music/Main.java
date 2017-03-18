@@ -80,7 +80,7 @@ public class Main extends Application
     @Override public void start(Stage primaryStage) throws Exception
     {
         Main.mainStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/ru/boris/music/view/MainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ru/boris/ru.boris.music/view/MainWindow.fxml"));
 
         primaryStage.setTitle("Музыкальный декодер");
         primaryStage.setScene(new Scene(root));
