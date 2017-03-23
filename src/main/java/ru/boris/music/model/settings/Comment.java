@@ -10,25 +10,27 @@ public class Comment
     private String comment;
     private Operation operationsByFkOperation;
 
-    @Id @Column(name = "fk_operations", nullable = false) public int getFkOperations()
+
+    @Id @Column(name = "fk_operations", nullable = false)
+    public int getFkOperations()
     {
         return fkOperations;
     }
-
     public void setFkOperations(int fkOperations)
     {
         this.fkOperations = fkOperations;
     }
 
-    @Basic @Column(name = "comment", nullable = true, length = 0) public String getComment()
+    @Basic @Column(name = "comment", nullable = true, length = 0)
+    public String getComment()
     {
         return comment;
     }
-
     public void setComment(String comment)
     {
         this.comment = comment;
     }
+
 
     @Override public int hashCode()
     {
@@ -36,7 +38,6 @@ public class Comment
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         return result;
     }
-
     @Override public boolean equals(Object o)
     {
         if (this == o) return true;
@@ -44,18 +45,17 @@ public class Comment
 
         Comment comment = (Comment) o;
 
-        if (fkOperations != comment.fkOperations) return false;
-        if (this.comment != null ? !this.comment.equals(comment.comment) : comment.comment != null) return false;
+        return fkOperations == comment.fkOperations && (this.comment != null ? this.comment
+                .equals(comment.comment) : comment.comment == null);
 
-        return true;
     }
+
 
     @OneToOne @JoinColumn(name = "fk_operations", referencedColumnName = "id", nullable = false)
     public Operation getOperationsByFkOperation()
     {
         return operationsByFkOperation;
     }
-
     public void setOperationsByFkOperation(Operation operationsByFkOperation)
     {
         this.operationsByFkOperation = operationsByFkOperation;

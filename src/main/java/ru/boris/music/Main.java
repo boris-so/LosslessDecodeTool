@@ -46,9 +46,6 @@ public class Main extends Application
     // Загружаем настойки. Вызов будет перед start.
     @Override public void init() throws Exception
     {
-        // debug: debug func here!
-        this.debug();
-
         // И параметры программы
         try(InputStream is = this.getClass().getResourceAsStream(PROPS_FILE);
             InputStreamReader r = new InputStreamReader(is, Charset.forName("utf-8")))

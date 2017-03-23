@@ -11,26 +11,23 @@ public class Format
     private String frm;
     private Collection<Operation> operationsById;
 
-    @Id @Column(name = "id", nullable = false) @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id @Column(name = "id", nullable = false) @GeneratedValue(strategy = GenerationType.TABLE)
     public int getId()
     {
         return id;
     }
-
     public void setId(int id)
     {
         this.id = id;
     }
 
-    @Basic @Column(name = "frm", nullable = true, length = 0) public String getFrm()
-    {
-        return frm;
-    }
 
     public void setFrm(String frm)
     {
         this.frm = frm;
     }
+
 
     @Override public int hashCode()
     {
@@ -52,11 +49,13 @@ public class Format
         return true;
     }
 
-    @OneToMany(mappedBy = "formatsByFkFrm") public Collection<Operation> getOperationsById()
+
+    @OneToMany
+    @JoinColumn(name = "fk_frm", referencedColumnName = "id", nullable = false)
+    public Collection<Operation> getOperationsById()
     {
         return operationsById;
     }
-
     public void setOperationsById(Collection<Operation> operationsesById)
     {
         this.operationsById = operationsesById;

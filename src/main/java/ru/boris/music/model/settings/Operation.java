@@ -12,7 +12,7 @@ public class Operation
     private Comment commentById;
     private Format formatByFkFrm;
 
-    @Id @Column(name = "id", nullable = false) @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @Column(name = "id", nullable = false) @GeneratedValue(strategy = GenerationType.TABLE)
     public int getId()
     {
         return id;
@@ -22,7 +22,8 @@ public class Operation
         this.id = id;
     }
 
-    @Basic @Column(name = "cmd", nullable = false, length = 0) public String getCmd()
+    @Basic @Column(name = "cmd", nullable = false, length = 0)
+    public String getCmd()
     {
         return cmd;
     }
@@ -30,6 +31,7 @@ public class Operation
     {
         this.cmd = cmd;
     }
+
 
     @Override public int hashCode()
     {
@@ -50,7 +52,9 @@ public class Operation
         return true;
     }
 
-    @OneToOne(mappedBy = "operationsByFkOperations") public Comment getCommentById()
+
+    @OneToOne @JoinColumn(name = "id", referencedColumnName = "fk_operations")
+    public Comment getCommentById()
     {
         return this.commentById;
     }
@@ -59,12 +63,18 @@ public class Operation
         this.commentById = commentById;
     }
 
-    @ManyToOne @JoinColumn(name = "fk_frm", referencedColumnName = "id", nullable = false)
+    @ManyToOne @JoinColumn
+            (
+                    name = "fk_frm",
+                    referencedColumnName = "id",
+                    nullable = false,
+                    insertable = false,
+                    updatable = false
+            )
     public Format getFormatByFkFrm()
     {
         return formatByFkFrm;
     }
-
     public void setFormatByFkFrm(Format formatByFkFrm)
     {
         this.formatByFkFrm = formatByFkFrm;
